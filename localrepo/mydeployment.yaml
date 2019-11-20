@@ -1,0 +1,15 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: mydeployment
+  namespace: mynamespace
+spec:
+  replicas: 4
+  template:
+    metadata:
+      labels: 
+        type: demodeployment
+    spec:
+      containers:
+      - name: cc1
+        image: nginx

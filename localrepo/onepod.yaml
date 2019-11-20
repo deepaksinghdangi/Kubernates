@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+  namespace: mynamespace
+spec:
+  containers:
+  - name: c1
+    image: nginx
+  - name: c2
+    image: centos:6
+    command: ['/bin/bash','-c','while true;do echo awake;sleep 1;done']
+    env:
+    - name: var1
+      value: value1

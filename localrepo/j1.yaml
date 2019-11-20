@@ -1,0 +1,13 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: j1
+spec:
+  completions: 3
+  template:
+    spec:
+      containers:
+      - name: c1
+        image: centos:6
+        command: ['/bin/bash','-c','sleep 5']
+      restartPolicy: Never

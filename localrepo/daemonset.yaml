@@ -1,0 +1,13 @@
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  name: daemonsetexample
+spec:
+  template:
+    metadata:
+      labels:
+        app: daemonsetexample
+    spec:
+      containers:
+      - name: n1
+        image: ngnix
