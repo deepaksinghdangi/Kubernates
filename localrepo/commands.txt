@@ -1,0 +1,504 @@
+    1  gcloud container clusters get-credentials ddangi-cluster --zone us-central1-a --project netapp-hcl
+    2  pwd
+    3  ls
+    4  kubectl get nodes
+    5  kubectl version
+    6  kubectl get nodes
+    7  kubectl
+    8  kubectl get pods
+    9  kubectl get pods -n kube-system
+   10  kubectl get cs
+   11  kubectl cluster-info
+   12  kubectl get pods -n kube-system -o wide
+   13  kubectl get pods -n kube-system
+   14  kubectl
+   15  kubectl config
+   16  kubectl
+   17  kubectl version
+   18  kubectl
+   19  kubectl logs
+   20  kubectl get namespaces
+   21  kubectl create namespace n1
+   22  kubectl get pods -n n1
+   23  kubectl get namespaces
+   24  kubectl get cs
+   25  kubectl run dep1 -n n1 --image=nginx --port=80 --replicas=8
+   26  kubectl get pods
+   27  kubectl get pods -n n1
+   28  kubectl delete pod dep1-68d678c86d-v2skz
+   29  kubectl delete pod dep1-68d678c86d-v2skz -n n1
+   30  kubectl get pods -n n1
+   31  kubectl get rs
+   32  kubectl get rs -n n1
+   33  kubectl get pods -n n1
+   34  kubectl get deployments -n n1
+   35  kubectl scale deployment dep1 -n n1 --replicas=90
+   36  kubectl get deployments -n n1
+   37  kubectl get pods -n n1
+   38  kubectl get rs -n n1
+   39  kubectl get pods -n n1
+   40  kubectl scale deployment dep1 -n n1 --replicas=9
+   41  kubectl get pods -n n1
+   42  kubectl get rs -n n1
+   43  kubectl get pods -n n1
+   44  kubectl cluster-info
+   45  kubectl get pods -n n1
+   46  kubectl cluster-info
+   47  history
+   48  kubectl get pods -n n1
+   49  kubectl exec -it dep1-68d678c86d-q849d -n n1 /bin/bash
+   50  kubectl run cen1 --image=centos:6 --replicas=2 -n n1 
+   51  kubectl get deployments -n n1
+   52  kubectl get pods -n n1
+   53  kubectl get deployments -n n1
+   54  kubectl get pods -n n1
+   55  ls
+   56  kubectl get pods -n n1
+   57  kubectl describe -n n1 cen1-55df4b6fcf-5s57w
+   58  kubectl describe cen1-55df4b6fcf-5s57w
+   59  kubectl describe cen1-55df4b6fcf-5s57w -n n1
+   60  kubectl describe pod cen1-55df4b6fcf-5s57w -n n1
+   61  kubectl get pods -n n1
+   62  kubectl describe pod cen1-55df4b6fcf-5s57w -n n1
+   63  kubectl get pods -n n1
+   64  kubectl get pods
+   65  kubectl get pods -n n1
+   66  kubectl exec -it cen1-55df4b6fcf-5s57w -n n1
+   67  kubectl run cen2 -n n1 --image=centos:6 --replicas=2 --command -- /bin/sh -c 'while true;do echo hello;sleep 1;done'
+   68  kubectl get pods -n n1
+   69  kubectl exec -it cen2-b94b674d8-78xxd -n n1 /bin/bash
+   70  kubectl get pods -n n1
+   71  kubectl exec -it cen2-b94b674d8-78xxd /bin/bash
+   72  kubectl get pods -o wide
+   73  kubectl get pods -o wide -n n1
+   74  kubectl get pods -o wide
+   75  kubectl get pods -n n1
+   76  kubectl logs cen2-b94b674d8-78xxd
+   77  kubectl logs cen2-b94b674d8-78xxd -n n21
+   78  kubectl logs cen2-b94b674d8-78xxd -n n1
+   79  kubectl get pods -n n1
+   80  kubectl get pods -o wide
+   81  kubectl get pods -o wide -n n1
+   82  kubectl get pods -o wide
+   83  kubectl logs cen2-b94b674d8-78xxd -n n1
+   84  kubectl get pods -n n1
+   85  kubectl cluster-info
+   86  kubectl cluster-info dump
+   87  kubectl cluster-info
+   88  kubectl get deployments -n n1
+   89  kubectl get services
+   90  kubectl expose deployment dep1 --name=clusteripdep1 -n n1 --type=ClusterIP --port=80
+   91  kubectl get services
+   92  kubectl get services -n n1
+   93  curl 10.80.13.57
+   94  kubectl get pods -n n1
+   95  kubectl get services -n n1
+   96  kubectl exec -it dep1-68d678c86d-69zm6 /bin/bash
+   97  kubectl exec -it cen2-b94b674d8-78xxd /bin/bash
+   98  kubectl exec -it cen2-b94b674d8-78xxd -n n1 /bin/bash
+   99  history
+  100  kubectl expose deployment dep1 --name=nodeportdep1 -n n1 --type=NodePort --port=80
+  101  kubectl get services -n n1
+  102  kubectl expose deployment dep1 --name=lbdep1 -n n1 --type=LoadBalancer --port=80
+  103  kubectl get services -n n1
+  104  history
+  105  kubectl get services -n n1
+  106  kubectl set image deployment/dep1  -n n1 dep1=tumtum/apache-php
+  107  kubectl get pods -n n1
+  108  kubectl get services -n n1
+  109  kubectl get pods -n n1
+  110  kubectl 
+  111  kubectl get pods -n n1
+  112  kubectl delete dep1-6c7896fd54-vvjph
+  113  kubectl delete dep1-6c7896fd54-vvjph -n n1
+  114  kubectl get pods -n n1
+  115  kubectl rm dep1-6c7896fd54-vvjph -n n1
+  116  kubectl get pods -n n1
+  117  kubectl get services -n n1
+  118  kubectl get pods -n n1
+  119  kubectl set image deployment/dep1  -n n1 dep1=tutum/apache-php
+  120  kubectl get pods -n n1
+  121  kubectl get services -n n1
+  122  kubectl get pods -n n1
+  123  kubectl get endpoints -n n1
+  124  kubectl create services externalname -n n1 google --external-name=google.com
+  125  kubectl create service externalname -n n1 google --external-name=google.com
+  126  kubectl get pods -n n1
+  127  kubectl exec -it cen2-b94b674d8-78xxd -n n1 /bin/bash
+  128  kubectl get pods -n n1
+  129  kubectl rollout history deployment dep2 -n n1
+  130  kubectl get pods -n n1
+  131  kubectl 
+  132  kubectl rollout history deployment dep2 -n n1
+  133  kubectl get pods -n n1
+  134  kubectl run dep1 --image=nginx -port=80 --save-config --record
+  135  kubectl run dep1 --image=nginx --port=80 --save-config --record
+  136  kubectl get pods -n n1
+  137  kubectl rollout history deployment dep2 -n n1
+  138  kubectl rollout history deployment dep21 -n n1
+  139  kubectl rollout history deployment dep1 -n n1
+  140  kubectl get pods -n n1
+  141  kubectl run dep1 --image=nginx --port=80 --save-config --record
+  142  kubectl run dep1 --image=tutum --port=80 --save-config --record
+  143  kubectl set image deployment/dep1 -n n1 dep1=nginx --record
+  144  kubectl get pods -n n1
+  145  kubectl rollout history deployment dep1 -n n1
+  146  kubectl set image deployment/dep1 -n n1 dep1=tutum --record
+  147  kubectl get pods -n n1
+  148  kubectl rollout history deployment dep1 -n n1
+  149  kubectl get pods -n n1
+  150  kubectl rollout undo deployment dep1 --to-revision=1
+  151  kubectl rollout undo deployment dep1
+  152  kubectl rollout undo deployment dep1 --to-revision=0
+  153  kubectl rollout history deployment dep1 -n n1
+  154  kubectl get pods -n n1
+  155  kubectl set image deployment/dep1 -n n1 dep1=nginx --record
+  156  kubectl get pods -n n1
+  157  nano firstnamespace.yaml
+  158  ls
+  159  kubectl create -f firstnamespace.yaml 
+  160  kubectl namespace -s
+  161  kubectl get ns
+  162  nano onepod.yaml
+  163  nano onepod.yaml 
+  164  cat firstnamespace.yaml 
+  165  ls
+  166  nano onepod.yaml 
+  167  kubectl create -f onepod.yaml 
+  168  kubectl get pods -n mynamespace
+  169  cat onepod.yaml 
+  170  nano onepod.yaml 
+  171  kubectl get pods -n mynamespace
+  172  kubectl create -f onepod.yaml 
+  173  kubectl get pods -n mynamespace
+  174  nano onepod.yaml 
+  175  cat onepod.yaml 
+  176  kubectl create -f onepod.yaml 
+  177  nano onepod.yaml 
+  178  cat onepod.yaml 
+  179  kubectl create -f onepod.yaml 
+  180  kubectl delete -f onepod.yaml 
+  181  kubectl create -f onepod.yaml 
+  182  kubectl get pods -n mynamespace
+  183  kubectl exec -it mypod -n mynamepace /bin/bash -c c2
+  184  kubectl get pods -n mynamespace
+  185  kubectl exec -it mypod -n mynamepace -c c2 /bin/bash
+  186  kubectl exec -it mypod -n mynamespace /bin/bash -c c2
+  187  history
+  188  ls
+  189  kubectl get pods -n n1
+  190  nano onepod.yaml
+  191  cp onepod.yaml onepodex.yaml 
+  192  nano onepodex.yaml 
+  193  cp onepodex.yaml myreplica.yaml
+  194  nano myreplica.yaml 
+  195  kubectl create -f myreplica.yaml 
+  196  nano myreplica.yaml 
+  197  kubectl create -f myreplica.yaml 
+  198  nano myreplica.yaml 
+  199  kubectl create -f myreplica.yaml 
+  200  nano myreplica.yaml 
+  201  kubectl create -f myreplica.yaml 
+  202  nano myreplica.yaml 
+  203  kubectl create -f myreplica.yaml 
+  204  nano myreplica.yaml 
+  205  kubectl create -f myreplica.yaml 
+  206  nano myreplica.yaml 
+  207  kubectl create -f myreplica.yaml 
+  208  nano myreplica.yaml 
+  209  kubectl create -f myreplica.yaml 
+  210  nano myreplica.yaml 
+  211  kubectl create -f myreplica.yaml 
+  212  cat myreplica.yaml 
+  213  kubectl create -f myreplica.yaml 
+  214  nano myreplica.yaml 
+  215  kubectl create -f myreplica.yaml 
+  216  cp myreplica.yaml mydeployment.yaml
+  217  cat myreplica.yaml 
+  218  nano mydeployment.yaml 
+  219  kubectl create -f mydeployment.yaml
+  220  nano mydeployment.yaml 
+  221  kubectl create -f mydeployment.yaml
+  222  nano mydeployment.yaml 
+  223  kubectl create -f mydeployment.yaml
+  224  nano mydeployment.yaml 
+  225  kubectl create -f mydeployment.yaml
+  226  nano mydeployment.yaml 
+  227  kubectl create -f mydeployment.yaml
+  228  kubectl get deployements
+  229  cat mydeployment.yaml 
+  230  kubectl get deployment -n mynamespace
+  231  kubectl get services -n mynamespace
+  232  ls
+  233  ls -ltr
+  234  cat myreplica.yaml
+  235  cat mydeployment.yaml 
+  236  history
+  237  cat onepod.yaml
+  238  history
+  239  nano myservice.yaml
+  240  cat mydeployment.yaml 
+  241  kubectl get services -n mynamespace
+  242  kubectl get deployment -n namespace
+  243  kubectl get deployment -n mynamespace
+  244  kubectl delete 
+  245  kubectl delete mydeployment.yaml 
+  246  kubectl delete -s mydeployment.yaml 
+  247  history
+  248  kubectl get deployment -n mynamespace
+  249  kubectl delete mydeployment   
+  250  kubectl delete mydeployment   -n mynamespace
+  251  kubectl delete mydeployment -n mynamespace
+  252  kubectl delete mydeployment --all
+  253  kubectl get deployment -n mynamespace
+  254  ls
+  255  kubectl delete -f mydeployment.yaml
+  256  ls
+  257  nano mydeployment.yaml 
+  258  kubectl create -f mydeployment.yaml 
+  259  kubectl get deployment -n mynamespace
+  260  cat onepod.yaml
+  261  ls
+  262  vim myreplica.yaml 
+  263  cat mydeployment.yaml 
+  264  vim myservice.yaml 
+  265  kubectl create -f myservice.yaml 
+  266  vim myservice.yaml 
+  267  kubectl create -f myservice.yaml 
+  268  kubectl get deployment -n mynamespace
+  269  ls
+  270  vim myreplica.yaml 
+  271  kubectl create -f myreplica.yaml 
+  272  vim myreplica.yaml 
+  273  kubectl create -f myreplica.yaml 
+  274  vim myreplica.yaml 
+  275  kubectl create -f myreplica.yaml 
+  276  vim myreplica.yaml 
+  277  kubectl create -f myreplica.yaml 
+  278  kubectl get deployment -n mynamespace
+  279  vim myreplica.yaml 
+  280  history
+  281  kubectl get pods
+  282  kubectl get pods -n n1
+  283  ls
+  284  nano index.html
+  285  cp index.html index2.html
+  286  ls
+  287  nano Dockerfile
+  288  cp Dockerfile Dockerfile1
+  289  nano index2.html
+  290  nano Dockerfile1
+  291  cat index.html 
+  292  cat index2.html 
+  293  cp Dockerfile1 Dockerfile2
+  294  rm Dockerfile1
+  295  docker build -t deepak8545
+  296  /
+  297  docker build -t deepak8545:netapprepro:blue -f Dockerfile
+  298  docker build -t deepak8545:netapprepro:blue -f Dockerfile .
+  299  docker build -t deepak8545/netapprepro:blue -f Dockerfile .
+  300  docker login
+  301  docker build -t deepak8545/netapprepro:blue -f Dockerfile .
+  302  docker login
+  303  docker build -t deepak8545/netapprepro:blue -f Dockerfile .
+  304  docker build -t deepak8545/netaprepro:blue -f Dockerfile .
+  305  ls
+  306  cp mydeployment.yaml myingress.yaml
+  307  vim myingress.yaml 
+  308  ls
+  309  ls -al
+  310  ls
+  311  docker login
+  312  docker build -t deepak8545/netaprepro:blue -f Dockerfile .
+  313  kubectl run yellow --image=rathihimanshu/netapprepo:yellow --port=80 --replicas=
+  314  3
+  315  docker build -t deepak8545/netaprepro:blue -f Dockerfile .
+  316  cat myingress.yaml 
+  317  ls
+  318  vim myingress.yaml 
+  319  docker build -t deepak8545/netapprepro:blue -f Dockerfile .
+  320  docker login
+  321  docker build -t deepak8545/netapprepro:blue -f Dockerfile .
+  322  cat Dockerfile
+  323  kubectl create -f myingress.yaml 
+  324  kubectl run yellow --image=rathihimanshu/netapprepo:yellow --port=80 --replicas=3
+  325  kubectl run green --image=rathihimanshu/netapprepo:green --port=80 --replicas=3
+  326  vim myingress.yaml 
+  327  kubectl create -f myingress.yaml 
+  328  vim myingress.yaml 
+  329  kubectl create -f myingress.yaml 
+  330  vim myingress.yaml 
+  331  kubectl create -f myingress.yaml 
+  332  ls
+  333  cat myingress.yaml 
+  334  ls
+  335  cp index.html green.html
+  336  cp index.html yellow.html
+  337  vim green.html 
+  338  vim yellow.html 
+  339  kubectl create -f myingress.yaml 
+  340  kubectl get services
+  341  kubectl expose deployment green -name=greenservice --port=80
+  342  kubectl expose deployment green --name=greenservice --port=80
+  343  kubectl expose deployment green --name=greenservice --port=80 --type=LoadBalancer --target-port=80
+  344  kubectl expose deployment yellow --name=yellowservice --port=80 --type=LoadBalancer --target-port=80
+  345  kubectl get services
+  346  vim myingress.yaml 
+  347  kubectl create -f myingress.yaml 
+  348  cat myingress.yaml 
+  349  ls
+  350  kubectl get services
+  351  kubectl delete service 
+  352  kubectl delete service greenservice
+  353  kubectl expose deployment green --name=greenservice --port=80 --type=LoadBalancer --target-port=80
+  354  kubectl get services
+  355  kubectl create -f myingress.yaml 
+  356  vim myingress.yaml 
+  357  nano myingress.yaml 
+  358  kubectl create -f myingress.yaml 
+  359  pwd
+  360  kubectl get ingress
+  361  nano v1.yaml
+  362  cp v1.yaml dep1.yaml
+  363  nano dep1.yaml
+  364  ls
+  365  nano dep1.yaml
+  366  vim dep1.yaml 
+  367  nano dep1.yaml
+  368  cat dep1.yaml 
+  369  ls
+  370  kubectl create -f dep1.yaml 
+  371  kubectl create -f v1.yaml 
+  372  kubectl get pods
+  373  cat v1.yaml 
+  374  kubectl exec -it v1pod -c c1 /bin/bash
+  375  kubectl delete v1pod
+  376  kubectl delete pods 
+  377  kubectl delete 
+  378  kubectl delete pod v1pod
+  379  nao v1.yaml 
+  380  nano v1.yaml 
+  381  kubectl create -f v1.yaml 
+  382  kubectl exec -it v1pod -c c1 /bin/bash
+  383  ls
+  384  nano dep1.yaml 
+  385  kubectl create -f dep1.yaml 
+  386  ls
+  387  cp v1.yaml v2.yaml
+  388  nano v2.yaml 
+  389  kubectl create -f v2.yaml 
+  390  nano v2.yaml 
+  391  kubectl create -f v2.yaml 
+  392  kubectl get pods
+  393  kubectl get pods -o wide
+  394  nano v2.yaml 
+  395  kubectl delete pod v2pod
+  396  kubectl create -f v2.yaml 
+  397  kubectl get pods
+  398  kubectl get pods -o wide
+  399  kubectl delete pod v2pod
+  400  nano v2.yaml 
+  401  kubectl create -f v2.yaml 
+  402  nano v2.yaml 
+  403  kubectl create -f v2.yaml 
+  404  kubectl get pods
+  405  kubectl delete pod v1pod
+  406  kubectl get pods
+  407  nano v2.yaml 
+  408  kubectl get pods
+  409  kubectl get pods -a v2.yaml 
+  410  kubectl get pods
+  411  ls
+  412  nano myingress.yaml 
+  413  kubectl get pods
+  414  kubectl create -f myingress.yaml 
+  415  kubectl delete pod v2pod
+  416  ls
+  417  nano v2.yaml 
+  418  kubectl create -f v2.yaml 
+  419  kubectl get pods
+  420  cat v2.yaml 
+  421  kubectl get secrets
+  422  nano sec1.txt
+  423  kubectl create secret generic sec1 --from-file=sec1.txt 
+  424  kubectl get secrets
+  425  kubectl get secrets -o 
+  426  kubectl get secrets -o wide
+  427  kubectl get secrets
+  428  kubectl get services
+  429  kubectl get secrets -o wide yaml
+  430  kubectl get secrets -o wide yml
+  431  cp v2.yaml secpod.yaml
+  432  nano secpod.yaml 
+  433  kubectl delete pod v2pod
+  434  kubectl create -f secpod.yaml 
+  435  nano secpod.yaml 
+  436  kubectl create -f secpod.yaml 
+  437  kubectl exec -it v2pod -c c1 /bin/bash
+  438  nano secpod.yaml 
+  439  kubectl get secrets
+  440  kubectl get secrets -o yaml
+  441  ls
+  442  cat secpod.yaml 
+  443  echo 'YWJjQDEyCg==' | base64 --decode
+  444  ls
+  445  cp secpod.yaml secfromyaml.yaml
+  446  nano secfromyaml.yaml 
+  447  rm secfromyaml.yaml 
+  448  nano secfromyaml.yaml
+  449  kubectl create -f secfromyaml.yaml 
+  450  cat secfromyaml.yaml 
+  451  nano secfromyaml.yaml
+  452  kubectl create -f secfromyaml.yaml 
+  453  cat secfromyaml.yaml 
+  454  nano secfromyaml.yaml
+  455  kubectl create -f secfromyaml.yaml 
+  456  kubectl apply -f secfromyaml.yaml 
+  457  kubectl apply -f ./secfromyaml.yaml 
+  458  nano secfromyaml.yaml
+  459  cat secfromyaml.yaml 
+  460  kubectl get jobs
+  461  cat v1.yaml 
+  462  nano j1.yaml
+  463  kubectl create -f j1.yaml 
+  464  nano j1.yaml
+  465  kubectl create -f j1.yaml 
+  466  nano j1.yaml
+  467  kubectl create -f j1.yaml 
+  468  nano j1.yaml
+  469  kubectl create -f j1.yaml 
+  470  kubectl get jobs
+  471  nano j1.yaml
+  472  kubectl delete jobs j1
+  473  kubectl create -f j1.yaml 
+  474  kubectl get jobs
+  475  ls
+  476  cp j1.yaml cronj1.yaml
+  477  nano cronj1.yaml 
+  478  kubectl create -f cronj1.yaml 
+  479  nano cronj1.yaml 
+  480  kubectl create -f cronj1.yaml 
+  481  kubectl get cronjob
+  482  kubectl delete cronjob cronj1
+  483  nano cronj1.yaml 
+  484  kubectl create -f cronj1.yaml 
+  485  kubectl get cronjob
+  486  cat cronj1.yaml 
+  487  kubectl get cronjob
+  488  ls
+  489  kubectl get pods
+  490  kubectl delete pods green-7f4bc65845-j57fm green-7f4bc65845-pbz5q
+  491  kubectl delete cronjobs j1-fgmxg j1-h6dd8
+  492  kubectl delete pods j1-fgmxg j1-h6dd8
+  493  kubectl get pods
+  494  kubectl delete pods j1-mngpv
+  495  kubectl delete pods v2pod
+  496  kubectl get pods
+  497  kubectl get services
+  498  cat mypc.yaml 
+  499  ls
+  500  ls -al
+  501  ls -altr
+  502  cat pvpod.yaml
+  503  history
+  504  history > commands.txt
